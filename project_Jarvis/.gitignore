@@ -1,0 +1,29 @@
+﻿# Python
+__pycache__/
+*.py[cod]
+*.so
+.Python
+venv/
+.venv/
+env/
+ENV/
+
+# Projeto
+logs/
+*.log
+*.db
+.DS_Store
+
+# Assets 3D (opcional - descomente se quiser versionar)
+# panda3d_assets/models/
+# panda3d_assets/textures/
+# panda3d_assets/sounds/
+
+# Ambiente
+.env
+*.local
+
+# Cache
+cache/
+data/
+models/local_models/

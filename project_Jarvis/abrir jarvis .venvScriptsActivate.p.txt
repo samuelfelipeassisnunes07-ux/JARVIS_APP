@@ -1,0 +1,31 @@
+abrir jarvis 
+
+.\venv\Scripts\Activate.ps1
+
+py -3.12 --version
+
+Quando você quiser deixar o servidor rodando tipo servidor de verdade, roda sem reload:
+
+python -m uvicorn api:app --host 0.0.0.0 --port 8000
+
+O que você vai fazer sempre que ligar o Jarvis
+
+1️⃣ Iniciar o backend:
+
+uvicorn main:app --host 0.0.0.0 --port 8000
+
+2️⃣ Abrir outro terminal e rodar:
+
+ngrok http 8000
+
+3️⃣ Copiar o link tipo:
+
+https://xxxxx.ngrok-free.dev
+
+4️⃣ Colocar no index.tsx:
+
+fetch("https://xxxxx.ngrok-free.dev/chat")
+
+
+
+onde esta a pasta do aplicativo?: C:\Users\Samuel Felipe Assis\jarvis-app

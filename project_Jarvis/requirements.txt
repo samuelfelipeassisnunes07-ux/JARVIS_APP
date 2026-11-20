@@ -1,0 +1,26 @@
+# os requeriments devem ser baixados para poder rodar o programa
+
+fastapi==0.104.1
+uvicorn==0.24.0
+python-multipart==0.0.6
+pydantic==2.4.2
+requests==2.31.0
+python-dotenv==1.0.0
+SQLAlchemy>=2.0.0
+PyMySQL>=1.1.0
+pyyaml==6.0.1
+numpy==1.26.4
+pypdf==3.17.4
+
+# Dependências para fine-tuning
+torch>=2.0.0
+transformers>=4.30.0
+peft>=0.4.0
+accelerate>=0.20.0
+bitsandbytes>=0.41.0
+datasets>=2.10.0
+scipy>=1.11.0
+
+# Dependências para RAG avançado
+chromadb>=0.4.0
+sentence-transformers>=2.2.0

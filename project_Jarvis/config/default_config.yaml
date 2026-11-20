@@ -1,0 +1,51 @@
+# config/default_config.yaml
+
+assistant:
+  name: "Jarvis"
+  language: "pt-BR"
+  debug: true
+  version: "2.1.0"
+
+llm:
+  provider: "ollama"
+  base_url: "http://localhost:11434"
+
+  # Modelo principal para conversa
+  chat_model: "jarvis"
+
+  # Modelo especializado para programação
+  code_model: "jarvis-coder"
+
+  # Configurações padrão
+  temperature: 0.7
+  max_tokens: 1500
+
+  # Configurações para conversa
+  chat:
+    temperature: 0.8
+    max_tokens: 800
+    top_p: 0.9
+    repeat_penalty: 1.05
+
+  # Configurações para código
+  code:
+    temperature: 0.2
+    max_tokens: 4096
+    top_k: 40
+    top_p: 0.9
+    repeat_penalty: 1.1
+
+memory:
+  short_term_size: 20
+  long_term_db: "database/memory.db"
+
+voice:
+  wake_word: "jarvis"
+  stt_model: "base"
+  tts_voice: "pt-BR"
+
+paths:
+  logs: "logs/"
+  cache: "cache/"
+  data: "data/"
+  plugins: "plugins/"

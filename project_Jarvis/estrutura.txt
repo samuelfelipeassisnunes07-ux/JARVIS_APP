@@ -1,0 +1,160 @@
+project_jarvis/
+
+core/
+│
+├── __init__.py
+├── assistant.py
+├── agent.py
+├── intent_detector.py
+└── task_manager.py
+
+brain/
+│
+├── __init__.py
+├── llm.py
+├── reasoning.py
+└── prompt_manager.py
+
+memory/
+│
+├── __init__.py
+├── memory_manager.py
+├── short_memory.py
+├── long_memory.py
+├── vector_memory.py
+└── advanced_rag.py
+
+voice/
+│
+├── __init__.py
+├── speech_to_text.py
+├── text_to_speech.py
+└── wake_word.py
+
+tools/
+│
+├── __init__.py
+├── browser_tools.py
+├── system_tools.py
+├── file_tools.py
+├── search_tools.py
+├── automation_tools.py
+└── fine_tuning.py
+
+agents/
+│
+├── __init__.py
+├── task_agent.py
+├── planner_agent.py
+└── research_agent.py
+
+database/
+│
+├── __init__.py
+├── connection.py
+├── models.py
+├── db.py
+└── feedback.py
+
+config/
+│
+├── __init__.py
+├── settings.py
+├── api_keys.py
+└── default_config.yaml
+
+utils/
+│
+├── __init__.py
+├── logger.py
+├── helpers.py
+└── file_loader.py
+
+interfaces/
+│
+├── __init__.py
+├── cli_interface.py
+├── web_interface.py
+└── panda3d_interface.py
+
+web/
+│
+├── index.html
+├── script.js
+└── style.css
+
+prompts/
+│
+├── system_prompt.txt
+├── assistant_prompt.txt
+└── tools_prompt.txt
+
+plugins/
+│
+└── example_plugin.py
+
+scripts/
+│
+├── setup_database.py
+├── demo_aprendizado.py
+└── migrate_db.py
+
+cache/
+│
+├── responses/
+└── embeddings/
+
+resources/
+│
+├── sounds/
+└── icons/
+
+models/
+│
+└── (modelos fine-tuned)
+
+logs/
+│
+└── (logs do sistema)
+
+uploads/
+│
+└── (arquivos enviados)
+
+tests/
+│
+├── test_memory.py
+├── test_agent.py
+└── test_tools.py
+
+# Arquivos na raiz
+├── api.py
+├── app.py
+├── corrigir_interface.py
+├── estrutura.txt
+├── README.md
+├── requirements.txt
+├── __pycache__/
+└── Documentação do Projeto — Jarvis.txt
+
+logs/
+│
+└── assistant.log
+
+data/
+│
+└── knowledge/
+
+models/
+│
+└── local_models/
+
+scripts/
+│
+└── setup_database.py
+
+app.py
+requirements.txt
+.env
+.gitignore
+README.md

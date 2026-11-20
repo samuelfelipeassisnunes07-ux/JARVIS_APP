@@ -1,0 +1,383 @@
+# Documentação do Projeto — Jarvis AI Assistant
+
+## 1. O que é o Jarvis
+
+Jarvis é um assistente de inteligência artificial desenvolvido para funcionar como um sistema pessoal capaz de conversar com o usuário, responder perguntas, auxiliar em tarefas e armazenar informações importantes em memória.
+
+O projeto foi criado para funcionar com:
+
+* Aplicativo mobile (Android)
+* Interface web
+* Backend próprio
+* Modelos de IA rodando localmente
+* Banco de dados para memória
+
+Diferente de assistentes tradicionais que dependem totalmente da nuvem, o Jarvis foi projetado para rodar **em um servidor local**, neste caso um notebook configurado como servidor.
+
+Isso permite:
+
+* maior controle sobre os dados
+* funcionamento com modelos locais de IA
+* personalização completa
+* expansão do sistema futuramente
+
+---
+
+# 2. O que o Jarvis faz
+
+O Jarvis possui várias funções principais:
+
+### Conversação com IA
+
+O usuário pode enviar mensagens pelo aplicativo ou interface web e receber respostas geradas por um modelo de linguagem.
+
+### Memória de longo prazo
+
+O sistema pode armazenar informações importantes no banco de dados e recuperá-las posteriormente.
+
+Exemplo:
+
+Usuário diz:
+
+> "Meu nome é Felipe"
+
+O sistema pode salvar essa informação e lembrar depois.
+
+### Interface multiplataforma
+
+O Jarvis pode ser acessado por:
+
+* aplicativo Android
+* navegador web
+* chamadas diretas da API
+
+### Processamento com IA local
+
+O processamento da IA não depende de serviços externos.
+Os modelos rodam localmente no computador servidor.
+
+### Comunicação via API
+
+Toda a comunicação entre aplicativo e servidor acontece através de uma **API REST**.
+
+---
+
+# 3. Arquitetura do sistema
+
+O sistema Jarvis foi construído com a seguinte arquitetura:
+
+Celular / Web App
+↓
+API Jarvis
+↓
+Lógica do Assistente
+↓
+Banco de Dados (Memória)
+↓
+Sistema de Modelos de IA
+↓
+Modelo de Linguagem
+
+Isso significa que:
+
+1. O usuário envia uma mensagem
+2. O aplicativo envia essa mensagem para a API
+3. A API processa a mensagem
+4. A mensagem é enviada ao modelo de IA
+5. O modelo gera uma resposta
+6. A resposta volta para o aplicativo
+
+---
+
+# 4. Tecnologias utilizadas
+
+## Backend
+
+Linguagem utilizada:
+
+Python
+
+Framework de API:
+
+FastAPI
+
+Função:
+
+* criar endpoints
+* receber mensagens
+* enviar respostas
+* gerenciar memória
+
+---
+
+## Modelos de IA
+
+Os modelos de linguagem são executados localmente através do sistema Ollama.
+
+Função do Ollama:
+
+* gerenciar modelos de linguagem
+* executar modelos localmente
+* responder às requisições da API
+
+Exemplos de modelos que podem ser utilizados:
+
+* Llama
+* Mistral
+* outros modelos compatíveis com Ollama
+
+---
+
+## Banco de dados
+
+Sistema utilizado:
+
+MySQL
+
+Função:
+
+* armazenar memórias
+* registrar informações importantes
+* permitir recuperação de dados
+
+---
+
+## Aplicativo Mobile
+
+Framework utilizado:
+
+React Native
+
+Sistema de navegação:
+
+Expo Router
+
+Função:
+
+* interface do usuário
+* envio de mensagens
+* exibição das respostas do Jarvis
+
+---
+
+## Build do aplicativo
+
+Ferramenta utilizada:
+
+Expo EAS Build
+
+Função:
+
+* compilar o aplicativo
+* gerar arquivo APK
+* permitir instalação no Android
+
+---
+
+# 5. Estrutura da API
+
+A API do Jarvis possui os seguintes endpoints principais.
+
+GET /
+
+Endpoint raiz do servidor.
+
+---
+
+GET /health
+
+Verifica se o servidor está funcionando corretamente.
+
+Resposta esperada:
+
+status do servidor ativo.
+
+---
+
+POST /chat
+
+Endpoint principal do sistema.
+
+Função:
+
+enviar mensagens para o Jarvis.
+
+Formato da requisição:
+
+```
+{
+"text": "mensagem do usuário",
+"session_id": "identificador da sessão"
+}
+```
+
+Resposta:
+
+texto gerado pelo modelo de IA.
+
+---
+
+POST /remember
+
+Permite armazenar informações na memória do sistema.
+
+---
+
+GET /recall/{key}
+
+Permite recuperar informações salvas anteriormente.
+
+---
+
+GET /stats
+
+Retorna estatísticas do sistema.
+
+---
+
+# 6. Notebook como servidor
+
+O Jarvis utiliza um notebook como servidor principal.
+
+O notebook executa:
+
+* backend da API
+* sistema Ollama
+* banco de dados
+* lógica do assistente
+
+Isso transforma o notebook em um **servidor de inteligência artificial pessoal**.
+
+Vantagens:
+
+* controle total do sistema
+* dados armazenados localmente
+* menor custo de infraestrutura
+* possibilidade de expansão futura
+
+---
+
+# 7. Comunicação com o aplicativo
+
+O aplicativo se comunica com o servidor através de um endereço de API.
+
+Exemplo:
+
+https://xxxxx.ngrok-free.dev/chat
+
+Esse endereço é criado usando um túnel de rede que permite acessar o servidor pela internet.
+
+Fluxo de comunicação:
+
+Aplicativo
+↓
+Internet
+↓
+Túnel de rede
+↓
+Servidor local
+↓
+API Jarvis
+↓
+Modelo de IA
+
+---
+
+# 8. Como iniciar o Jarvis (passo a passo)
+
+Para iniciar o sistema completo é necessário executar algumas etapas.
+
+## Passo 1 — iniciar o backend
+
+Abrir o terminal e executar:
+
+uvicorn main:app --host 0.0.0.0 --port 8000
+
+Isso inicia o servidor da API.
+
+---
+
+## Passo 2 — iniciar o túnel de acesso remoto
+
+Executar:
+
+ngrok http 8000
+
+Isso cria um endereço público para acessar o servidor.
+
+Exemplo de endereço gerado:
+
+https://xxxxx.ngrok-free.dev
+
+---
+
+## Passo 3 — verificar o servidor
+
+Abrir no navegador:
+
+/health
+
+Se responder corretamente, o servidor está ativo.
+
+---
+
+## Passo 4 — abrir o aplicativo
+
+Abrir o aplicativo Jarvis no celular.
+
+---
+
+## Passo 5 — enviar mensagem
+
+Escrever uma mensagem no chat.
+
+O aplicativo enviará a mensagem para o servidor e o modelo de IA responderá.
+
+---
+
+# 9. Como instalar o aplicativo
+
+1. Baixar o arquivo APK
+2. Transferir para o celular
+3. Permitir instalação de apps desconhecidos
+4. Instalar o aplicativo
+5. Abrir o aplicativo Jarvis
+
+---
+
+# 10. Atualizações do sistema
+
+Caso a API mude de endereço, pode ser necessário atualizar o aplicativo ou alterar a configuração da API no código.
+
+Durante o desenvolvimento, o aplicativo pode ser atualizado automaticamente através do ambiente de desenvolvimento.
+
+---
+
+# 11. Possíveis melhorias futuras
+
+O projeto Jarvis pode ser expandido com diversas funcionalidades.
+
+Exemplos:
+
+* reconhecimento de voz
+* resposta por voz
+* automação do computador
+* controle de dispositivos
+* integração com APIs externas
+* sistema de plugins
+* memória inteligente avançada
+* painel administrativo
+
+---
+
+# 12. Conclusão
+
+Jarvis é um assistente de inteligência artificial modular que combina:
+
+* IA local
+* aplicativo mobile
+* API própria
+* banco de dados
+* infraestrutura de servidor local
+
+O sistema foi projetado para ser escalável e permitir futuras expansões, tornando possível evoluir o assistente para um sistema mais avançado de automação e inteligência artificial pessoal.
